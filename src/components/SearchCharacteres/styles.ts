@@ -24,6 +24,7 @@ export const SearchContainer = styled.div`
     form {
       display: flex;
       align-items: center;
+      justify-content: center;
     },
     a {
       color: ${theme.colors.primaryColor};

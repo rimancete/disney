@@ -69,6 +69,15 @@ export const GlobalStyles = createGlobalStyle`
         font-size: 1em;
       }
   }
+  select {
+      font-size: 1.25em;
+      width: 170px;
+      height: 38px;
+      border-radius: 5px;
+      padding: 5px 10px;
+      background-color: white;
+      margin-right: 15px;
+  }
   .pressable {
     cursor: pointer;
     color: ${({ theme }) => theme.colors.primaryColor};
@@ -79,9 +88,19 @@ export const GlobalStyles = createGlobalStyle`
   .pressable:hover {
     color: ${({ theme }) => theme.colors.secondaryColor};
   }
+  .icon-pressable {
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.primaryColor};
+    text-decoration: none;
+    border-color: transparent;
+    transition: all, 0.3s;
+  }
+  .icon-pressable:hover {
+    color: ${({ theme }) => theme.colors.secondaryColor};
+  }
 
   .btn-only-cancel {
-    width: 30%;
+    width: 200px;
   }
   .table {
     width: 100%;

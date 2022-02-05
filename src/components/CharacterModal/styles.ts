@@ -23,9 +23,15 @@ export const ModalContent = styled.div`
   ${({ theme }) => css`
     background: ${theme.colors.white};
     width: 40%;
+    max-height: 1000px;
     min-width: 300px;
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.6) 0px 7px 29px 0px;
+    overflow-y: auto;
+    border-radius: 10px;
+    @media only screen and ${theme.media.lteLarge} {
+      height: 100%;
+    }
   `}
 `;
 
@@ -62,12 +68,36 @@ export const Body = styled.div`
 `;
 
 export const BodyCategory = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  .category-title {
-    margin: 0;
-  }
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .description {
+      display: flex;
+      width: 100%;
+      margin-left: 5px;
+      border: 2px solid ${theme.colors.secondaryColor};
+      border-radius: 5px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .description-title__text {
+      margin: 0;
+    }
+
+    .description-title {
+      display: flex;
+      flex-direction: row;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    .description__no-data-text {
+      ${({ theme }) => css`
+        color: ${theme.colors.darkGray};
+      `}
+    }
+  `}
 `;
 
 export const ButtonContainer = styled.div`
@@ -75,4 +105,5 @@ export const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin: 10px 0;
 `;

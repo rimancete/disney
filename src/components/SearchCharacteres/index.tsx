@@ -10,11 +10,14 @@ export type SearchCharacteresProps = {
 
 export function SearchCharacteres({ title }: SearchCharacteresProps) {
   const [string, setString] = useState('');
+  const [filter, setFilter] = useState('name');
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     Router.push(
-      `${env.ROUTER_UTILS.base.characteres}/${string ? string : '%20'}`,
+      `${env.ROUTER_UTILS.base.characteres}/${
+        string ? `${string}?filter=${filter}` : `%20?filter=${filter}`
+      }`,
     );
   };
 
@@ -23,13 +26,24 @@ export function SearchCharacteres({ title }: SearchCharacteresProps) {
       <h1>{title}</h1>
       <div>
         <form onSubmit={onSubmit}>
+          <select
+            onChange={(e) => setFilter(e.target.value)}
+            name="filter-options"
+            id="lang"
+            value={filter}
+          >
+            <option value="name">Name</option>
+            <option value="film">Film</option>
+            <option value="tvShow">TV Show</option>
+            <option value="videogame">VideoGame</option>
+          </select>
           <input
             type="text"
-            placeholder="search by name"
+            placeholder={`search by ${filter}`}
             value={string}
             onChange={(e) => setString(e.target.value)}
           />
-          <FaSearch size={24} />
+          <FaSearch className="icon-pressable" onClick={onSubmit} size={24} />
         </form>
       </div>
     </Styled.SearchContainer>

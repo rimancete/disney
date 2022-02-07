@@ -23,15 +23,12 @@ export const ModalContent = styled.div`
   ${({ theme }) => css`
     background: ${theme.colors.white};
     width: 40%;
-    max-height: 1000px;
+    height: 970px;
     min-width: 300px;
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.6) 0px 7px 29px 0px;
     overflow-y: auto;
     border-radius: 10px;
-    @media only screen and ${theme.media.lteLarge} {
-      height: 100%;
-    }
   `}
 `;
 

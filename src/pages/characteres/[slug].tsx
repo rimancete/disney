@@ -1,5 +1,5 @@
 import { ListCharacteres } from '../../components/ListCharacteres';
-import * as Styled from './styles';
+import * as Styled from '../../components/styles';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
@@ -16,9 +16,9 @@ function Characteres() {
   }, [router]);
 
   return (
-    <Styled.Container>
+    <Styled.CharacteresContainer>
       {slug && filter && <ListCharacteres string={slug} filter={filter} />}
-    </Styled.Container>
+    </Styled.CharacteresContainer>
   );
 }
 export default Characteres;
